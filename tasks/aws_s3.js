@@ -179,11 +179,15 @@ module.exports = function (grunt) {
 		}
 
 		var s3_options = {
-			bucket: options.bucket,
-			accessKeyId: options.accessKeyId,
-			secretAccessKey: options.secretAccessKey,
-			sessionToken: options.sessionToken
+			bucket: options.bucket
 		};
+
+		// If accessKeyId isn't set we can potentially retrieve credentials from the IAM role
+		if (options.accessKeyId) {
+			s3_options['accessKeyId'] = options.accessKeyId;
+			s3_options['secretAccessKey'] = options.secretAccessKey;
+			s3_options['sessionToken'] = options.sessionToken;
+		}
 
 		if (!options.region) {
 			grunt.log.writeln("No region defined. S3 will default to US Standard\n".yellow);
