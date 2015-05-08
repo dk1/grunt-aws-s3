@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 			test_local: {
 				options: {
 					bucket: __dirname + '/test/local/bucket',
-					concurrency: 1,
+					uploadConcurrency: 1,
 					mock: true,
 					stream: true
 				},

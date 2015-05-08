@@ -169,6 +169,12 @@ In order to be able to compare to the local file names, it is necessary for `des
   {cwd: 'dist/scripts/', dest: 'scripts/', 'action': 'download', differential: true}
 ```
 
+#### options.overwrite
+Type: `Boolean`  
+Default: `true`
+
+By setting this options to `false`, you can prevent overwriting files on the server. The task will scan the whole bucket first and if it encounters a path that's about to be erased will stop.
+
 #### options.displayChangesOnly
 Type: `Boolean`
 Default: `false`
@@ -220,7 +226,7 @@ By default, the action is `upload`.
 #### `upload`
 
 The `upload` action uses the [newest Grunt file format](http://gruntjs.com/configuring-tasks#files), allowing to take advantage of the `expand` and `filter` options.  
-It is the default action, so you can omit `action: 'upload'` if you want a cleaner look.
+It is the default action, so you can omit `action: 'upload'` if you want a cleaner look. Don't forget to set a `dest` (use `dest: '/'` for the root).
 
 ```js
   files: [
@@ -460,6 +466,9 @@ aws_s3: {
 - Better testing (params, sync, etc.)
 
 ## Release History
+* 2015-03-19   v0.13.0  New option to prevent overwriting files
+* 2015-03-19   v0.12.3  Add warning when no dest is defined
+* 2015-03-16   v0.12.2  make differential work with gzipRename by @dedsm
 * 2015-02-12   v0.12.1  gzipRename option
 * 2015-02-12   v0.12.0  Basic gzip support
 * 2015-01-22   v0.11.1  Fix url encoding for copy action by @ahageali

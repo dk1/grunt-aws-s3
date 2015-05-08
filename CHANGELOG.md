@@ -1,5 +1,16 @@
 # CHANGELOG
 
+### v0.13.0
+- Fix tests
+- new `overwrite` option to prevent overwriting existing files (based on @nickjackson's PR)
+- update mock library
+
+### v0.12.3
+- Add warning when no dest is defined
+
+### v0.12.2
+- make differential work with gzipRename by @dedsm
+
 ### v0.12.1
 - gzipRename option to change extension of gzip files as they are uploaded
 
